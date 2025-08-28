@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas e Avisos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="avisos.api.js"></script>
+</head>
+<body>
+    <div class="rotina-header">
+        <h1>Datas e Avisos</h1>
+        <nav class="rotina-navbar">
+            <button class="rotina-btn" onclick="window.location.href='index.html'">Voltar</button>
+        </nav>
+    </div>
+    <div class="table-container">
+        <div class="avisos-box">
+            <form id="form-aviso" style="margin-bottom:18px;">
+                <input type="text" id="input-aviso" placeholder="Digite uma nova data ou aviso..." style="padding:10px;width:60%;border-radius:6px;border:1px solid #cfd8dc;">
+                <button type="submit" class="rotina-btn">Adicionar</button>
+            </form>
+            <ul id="lista-avisos" class="avisos-list"></ul>
+        </div>
+    </div>
+</body>
+</html>
