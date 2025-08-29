@@ -1,4 +1,3 @@
-// Integração frontend avisos.html com backend Java Spring Boot
 const API_URL = '/api/avisos';
 
 document.addEventListener('DOMContentLoaded', function() {

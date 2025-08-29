@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderAvisos() {
         lista.innerHTML = '';
         const avisos = getAvisos();
-        // Mais novos em cima
         avisos.slice().reverse().forEach((aviso, idx) => {
             const li = document.createElement('li');
             li.className = 'aviso-item';
@@ -22,13 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="aviso-text">${aviso.texto}</span>
                 <button class="remover-aviso rotina-btn" title="Remover">&times;</button>
             `;
-            // Remover aviso
             li.querySelector('.remover-aviso').onclick = function() {
                 avisos.splice(avisos.length - 1 - idx, 1);
                 setAvisos(avisos);
                 renderAvisos();
             };
-            // Marcar como lido
             li.querySelector('.check-aviso').onchange = function() {
                 avisos[avisos.length - 1 - idx].lido = this.checked;
                 setAvisos(avisos);
