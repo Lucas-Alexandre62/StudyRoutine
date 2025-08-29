@@ -1,4 +1,3 @@
-// Dados de exemplo: horários e disciplinas por dia
 const rotina = {
     'Segunda': [
         { horario: '07:15', disciplina: 'Ensino Digital' },
