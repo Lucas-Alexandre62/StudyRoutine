@@ -1,3 +1,36 @@
+.layout-toggle-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 18px;
+}
+.layout-options {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 8px 0;
+    min-width: 180px;
+    z-index: 100;
+    display: none;
+}
+.layout-option {
+    width: 100%;
+    text-align: left;
+    background: none;
+    color: #2563eb;
+    border: none;
+    border-radius: 0;
+    padding: 10px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.layout-option:hover {
+    background: #f0f6ff;
+    color: #4f8cff;
+}
 .avisos-box {
     background: #fff;
     border-radius: 14px;
@@ -45,7 +78,7 @@
 .remover-aviso:hover {
     background: #c92a2a;
 }
-/* Estilo para header da rotina */
+ 
 .rotina-header {
     background: linear-gradient(90deg, #4f8cff 60%, #ffe066 100%);
     padding: 32px 0 18px 0;
@@ -83,7 +116,7 @@
     background: #4f8cff;
     color: #fff;
 }
-/* Modal styles */
+ 
 .modal-bg {
     position: fixed;
     top: 0;
@@ -152,9 +185,94 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+.dias-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 24px 0 18px 0;
+}
+.dia-btn {
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.2s, color 0.2s;
+}
+.dia-btn.selected, .dia-btn:active {
+    background: #ffe066;
+    color: #2563eb;
+}
+.horarios-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+.horarios-table {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: none;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1.1rem;
+    text-align: left;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.horarios-table th, .horarios-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+}
+.horarios-table th {
+    background: #4f8cff;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.horarios-table tr:last-child td {
+    border-bottom: none;
+}
+.horarios-table tr:nth-child(even) td {
+    background: #f0f6ff;
+}
+.horario-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin: 10px auto;
+    padding: 16px 18px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+.horario-card .horario {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 6px;
+}
+.horario-card .disciplina {
+    color: #222;
 }
 
 
@@ -208,13 +326,20 @@ tr:nth-child(even) td {
         padding: 12px;
         flex-direction: column;
         align-items: center;
-    }
-    table {
         width: 100%;
+    }
+    .dias-container {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+    }
+    .horarios-table {
+        max-width: 98vw;
         font-size: 1rem;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+    }
+    .horario-card {
+        max-width: 98vw;
+        font-size: 0.98rem;
     }
     .rotina-header h1 {
         font-size: 1.3rem;
@@ -234,16 +359,31 @@ tr:nth-child(even) td {
         padding: 4px;
         flex-direction: column;
         align-items: center;
-    }
-    table {
         width: 100%;
+    }
+    .dias-container {
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        align-items: stretch;
+    }
+    .dia-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+    .horarios-container {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .horarios-table {
+        max-width: 100vw;
         font-size: 0.95rem;
-        border-radius: 0;
-        box-shadow: none;
-        overflow-x: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    }
+    .horario-card {
+        max-width: 100vw;
+        font-size: 0.95rem;
+        padding: 12px 8px;
     }
     th, td {
         padding: 10px 6px;

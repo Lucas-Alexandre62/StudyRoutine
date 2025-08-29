@@ -9,33 +9,22 @@
 </head>
 <body>
     <div class="rotina-header">
-        <h1>Rotina de estudos ADS Uninassau</h1>
+        <h1>Rotina de Estudos ADS Uninassau</h1>
         <nav class="rotina-navbar">
             <button class="rotina-btn" id="btn-edicao" onclick="window.location.href='editar.html'">Modo edição</button>
             <button class="rotina-btn" id="btn-consultar" onclick="window.location.href='disciplinas.html'">Consultar disciplinas atuais</button>
             <button class="rotina-btn" id="btn-avisos" onclick="window.location.href='avisos.html'">Datas e avisos</button>
         </nav>
+        <div class="layout-toggle-container">
+            <button class="rotina-btn" id="btn-layout-toggle">Escolher layout ▼</button>
+            <div class="layout-options" id="layoutOptions" style="display:none;">
+                <button class="rotina-btn layout-option" data-layout="cards">Interface Cards</button>
+                <button class="rotina-btn layout-option" data-layout="table">Tabela</button>
+                <button class="rotina-btn layout-option" data-layout="fulltable">Tabela Completa</button>
+            </div>
+        </div>
     </div>
-    <div class="table-container">
-        <table>
-            <tr>
-                <th>Disciplina</th>
-                <th>Segunda</th>
-                <th>Terça</th>
-                <th>Quarta</th>
-                <th>Quinta</th>
-                <th>Sexta</th>
-            </tr>
-            <tr>
-                <td id="disciplina1">Ensino Digital</td><td id="horario1_1">07:15</td><td id="horario1_2">08:30</td><td id="horario1_3">09:10</td><td id="horario1_4">10:05</td><td id="horario1_5">08:00</td>
-            </tr>
-            <tr>
-                <td id="disciplina2">Desenvolvimento Sustentável e Direitos Individuais</td><td id="horario2_1">09:00</td><td id="horario2_2">07:40</td><td id="horario2_3">08:20</td><td id="horario2_4">10:10</td><td id="horario2_5">09:30</td>
-            </tr>
-            <tr>
-                <td id="disciplina3">Usabilidade e Interface Humano Máquina</td><td id="horario3_1">07:30</td><td id="horario3_2">08:35</td><td id="horario3_3">09:15</td><td id="horario3_4">10:30</td><td id="horario3_5">08:05</td>
-            </tr>
-        </table>
-    </div>
+    <div class="dias-container" id="diasContainer"></div>
+    <div class="horarios-container" id="horariosContainer"></div>
 </body>
 </html>
