@@ -169,6 +169,40 @@ body {
     box-sizing: border-box;
 }
 
+table {
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    border: none;
+    width: 900px;
+    font-size: 1.2rem;
+    text-align: center;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+th, td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background: #4f8cff;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) td {
+    background: #f0f6ff;
+}
+
 @media (max-width: 900px) {
     .table-container {
         padding: 12px;
@@ -178,6 +212,9 @@ body {
     table {
         width: 100%;
         font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     .rotina-header h1 {
         font-size: 1.3rem;
@@ -205,6 +242,8 @@ body {
         box-shadow: none;
         overflow-x: auto;
         display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     th, td {
         padding: 10px 6px;
@@ -269,35 +308,4 @@ body {
     .avisos-list {
         font-size: 0.95rem;
     }
-}
-
-table {
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    border-radius: 12px;
-    border: none;
-    width: 900px;
-    font-size: 1.2rem;
-    text-align: center;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 18px 24px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-th {
-    background: #4f8cff;
-    color: #fff;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-tr:nth-child(even) td {
-    background: #f0f6ff;
 }
