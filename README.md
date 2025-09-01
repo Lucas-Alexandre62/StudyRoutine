@@ -1,7 +1,10 @@
 # 📚 Study Routine
 
-Aplicação simples feita com **HTML, CSS e JavaScript puro** para auxiliar na organização de uma rotina de estudos.  
-Projeto criado para prática de fundamentos de front-end e como exercício de deploy na **Vercel**.
+Uma aplicação web moderna e responsiva desenvolvida com **HTML, CSS e JavaScript** para gerenciamento eficiente de rotinas de estudos. 
+Este projeto demonstra implementação de práticas avançadas de front-end, incluindo design system, animações fluidas e arquitetura modular.
+
+![Version](https://img.shields.io/badge/version-1.0.0-green)
+![Status](https://img.shields.io/badge/status-active-success)
 
 ---
 
