@@ -140,45 +140,70 @@ document.addEventListener('DOMContentLoaded', function() {
     const primeiroBtn = document.querySelector('.dia-btn');
     if (primeiroBtn) primeiroBtn.click();
 
-    document.getElementById('btn-consultar').onclick = function() {
-        alert('Disciplinas atuais:\n' + Array.from(new Set([].concat(...Object.values(rotina).map(arr => arr.map(x => x.disciplina))))).join('\n'));
-    };
+    // Menu Toggle functionality
+    const menuToggle = document.getElementById('btn-menu-toggle');
+    const menuOptions = document.getElementById('menuOptions');
 
-    document.getElementById('btn-avisos').onclick = function() {
-        window.location.href = 'avisos.html';
-    };
-
-    const btnToggle = document.getElementById('btn-layout-toggle');
-    const layoutOptions = document.getElementById('layoutOptions');
-    
-    btnToggle.onclick = function(e) {
+    // Toggle menu when clicking the menu button
+    menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
-        layoutOptions.style.display = layoutOptions.style.display === 'none' ? 'block' : 'none';
-    };
-
-    document.body.addEventListener('click', function() {
-        layoutOptions.style.display = 'none';
+        menuOptions.style.display = menuOptions.style.display === 'none' ? 'block' : 'none';
     });
 
-    layoutOptions.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if(e.target.classList.contains('layout-option')) {
-            window.currentLayout = e.target.getAttribute('data-layout');
-            const selectedBtn = document.querySelector('.dia-btn.selected');
-            if(selectedBtn) selecionarDia(selectedBtn.textContent, selectedBtn);
-            document.getElementById('diasContainer').style.display = window.currentLayout === 'fulltable' ? 'none' : '';
-            layoutOptions.style.display = 'none';
-            btnToggle.textContent = 'Escolher layout ▼';
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!menuOptions.contains(e.target) && e.target !== menuToggle) {
+            menuOptions.style.display = 'none';
         }
     });
 
-    document.getElementById('btn-edicao').onclick = function() {
-        modoEdicao = !modoEdicao;
-        window.currentLayout = 'table';
-        const selectedBtn = document.querySelector('.dia-btn.selected');
-        if(selectedBtn) selecionarDia(selectedBtn.textContent, selectedBtn);
-        this.textContent = modoEdicao ? 'Salvar edição' : 'Modo edição';
-    };
+    // Handle all menu option clicks
+    menuOptions.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const option = e.target.closest('.menu-option');
+        if (!option) return;
+
+        // Handle layout options
+        const layout = option.dataset.layout;
+        if (layout) {
+            window.currentLayout = layout;
+            const selectedBtn = document.querySelector('.dia-btn.selected');
+            if (selectedBtn) {
+                selecionarDia(selectedBtn.textContent, selectedBtn);
+            }
+            document.getElementById('diasContainer').style.display = 
+                layout === 'fulltable' ? 'none' : '';
+        }
+
+        // Handle other menu options
+        switch(option.id) {
+            case 'btn-edicao':
+                modoEdicao = !modoEdicao;
+                window.currentLayout = 'table';
+                const selectedBtn = document.querySelector('.dia-btn.selected');
+                if(selectedBtn) {
+                    selecionarDia(selectedBtn.textContent, selectedBtn);
+                }
+                option.querySelector('span:not(.icon)').textContent = 
+                    modoEdicao ? 'Salvar edição' : 'Modo edição';
+                break;
+            case 'btn-consultar':
+                alert('Disciplinas atuais:\n' + 
+                    Array.from(new Set([].concat(...Object.values(rotina)
+                        .map(arr => arr.map(x => x.disciplina)))))
+                        .filter(Boolean)
+                        .join('\n')
+                );
+                break;
+            case 'btn-avisos':
+                window.location.href = 'avisos.html';
+                break;
+        }
+
+        // Close menu after action
+        menuOptions.style.display = 'none';
+    });
 
     const btnAdicionarDisciplina = document.getElementById('btn-adicionar-disciplina');
     if(btnAdicionarDisciplina) {
