@@ -14,12 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const avisos = getAvisos();
         avisos.slice().reverse().forEach((aviso, idx) => {
             const li = document.createElement('li');
-            li.className = 'aviso-item';
-            if (aviso.lido) li.classList.add('aviso-lido');
+            li.className = 'aviso-item' + (aviso.lido ? ' aviso-lido' : '');
             li.innerHTML = `
                 <input type="checkbox" ${aviso.lido ? 'checked' : ''} class="check-aviso">
                 <span class="aviso-text">${aviso.texto}</span>
-                <button class="remover-aviso rotina-btn" title="Remover">&times;</button>
+                <button class="remover-aviso rotina-btn" title="Remover">&times;<\/button>
             `;
             li.querySelector('.remover-aviso').onclick = function() {
                 avisos.splice(avisos.length - 1 - idx, 1);

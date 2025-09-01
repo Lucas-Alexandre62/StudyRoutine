@@ -6,26 +6,34 @@
     <title>Cronograma</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js"></script>
-    <title>Assistente de estudos</title>
 </head>
 <body>
-    <div class="rotina-header">
-        <h1>Rotina de Estudos ADS Uninassau</h1>
-        <nav class="rotina-navbar">
-            <button class="rotina-btn" id="btn-edicao" onclick="window.location.href='editar.html'">Modo edição</button>
-            <button class="rotina-btn" id="btn-consultar" onclick="window.location.href='disciplinas.html'">Consultar disciplinas atuais</button>
-            <button class="rotina-btn" id="btn-avisos" onclick="window.location.href='avisos.html'">Datas e avisos</button>
-        </nav>
-        <div class="layout-toggle-container">
-            <button class="rotina-btn" id="btn-layout-toggle">Escolher layout ▼</button>
-            <div class="layout-options" id="layoutOptions" style="display:none;">
-                <button class="rotina-btn layout-option" data-layout="cards">Interface Cards</button>
-                <button class="rotina-btn layout-option" data-layout="table">Tabela</button>
-                <button class="rotina-btn layout-option" data-layout="fulltable">Tabela Completa</button>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Rotina de Estudos</h1>
             </div>
+            <nav class="main-nav">
+                <button class="nav-btn" id="btn-edicao">Modo edição</button>
+                <button class="nav-btn" id="btn-consultar">Consultar disciplinas</button>
+                <button class="nav-btn" id="btn-avisos">Datas e avisos</button>
+                <div class="layout-dropdown">
+                    <button class="nav-btn" id="btn-layout-toggle">Layout ▼</button>
+                    <div class="layout-options" id="layoutOptions" style="display:none;">
+                        <button class="layout-option" data-layout="cards">Cards</button>
+                        <button class="layout-option" data-layout="table">Tabela</button>
+                        <button class="layout-option" data-layout="fulltable">Tabela Completa</button>
+                    </div>
+                </div>
+            </nav>
         </div>
+    </header>
+    <div class="main-content">
+        <div class="adicionar-container">
+            <button class="rotina-btn" id="btn-adicionar-disciplina">Adicionar disciplina</button>
+        </div>
+        <div class="dias-container" id="diasContainer"></div>
+        <div class="horarios-container" id="horariosContainer"></div>
     </div>
-    <div class="dias-container" id="diasContainer"></div>
-    <div class="horarios-container" id="horariosContainer"></div>
 </body>
 </html>
